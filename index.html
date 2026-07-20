@@ -1169,6 +1169,53 @@ body {
 @media (max-width: 480px) {
   .modal-facts { grid-template-columns: 1fr; }
 }
+
+/* ===== CONTACT FORM ===== */
+.contact-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.contact-option {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; border-radius: 14px;
+  text-decoration: none; transition: all 0.25s;
+  border: 2px solid var(--sand);
+}
+.contact-option:hover { border-color: var(--terra); background: rgba(196,92,62,0.04); transform: translateY(-1px); }
+.contact-option-icon { font-size: 28px; flex-shrink: 0; }
+.contact-option strong { display: block; font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 3px; }
+.contact-option span { font-size: 13px; color: var(--stone); }
+.contact-divider { text-align: center; position: relative; margin: 24px 0; }
+.contact-divider::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: var(--sand); }
+.contact-divider span { position: relative; background: white; padding: 0 16px; font-size: 13px; color: var(--stone); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--charcoal); margin-bottom: 7px; letter-spacing: 0.2px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 12px 16px;
+  border: 1.5px solid var(--sand); border-radius: 10px;
+  font-size: 14.5px; font-family: 'Inter', sans-serif;
+  color: var(--charcoal); background: white;
+  transition: border-color 0.2s; outline: none; -webkit-appearance: none;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(107,94,86,0.45); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--terra); box-shadow: 0 0 0 3px rgba(196,92,62,0.1); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B5E56' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+}
+.contact-submit {
+  width: 100%; background: var(--terra); color: white;
+  padding: 16px; border-radius: 12px;
+  font-size: 15px; font-weight: 600;
+  border: none; cursor: pointer; transition: all 0.3s;
+  font-family: 'Inter', sans-serif; min-height: 52px; margin-top: 4px;
+}
+.contact-submit:hover { background: var(--terra-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(196,92,62,0.3); }
+.contact-success { text-align: center; padding: 32px 16px; }
+.contact-success h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--charcoal); margin-bottom: 12px; }
+.contact-success p { color: var(--stone); font-size: 15px; line-height: 1.6; }
+.contact-success a { color: var(--terra); }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
 </style>
 
 </head>
@@ -1182,7 +1229,7 @@ body {
     <a href="#about">About</a>
     <a href="#pricing">Pricing</a>
     <a href="#testimonials">Stories</a>
-    <a href="#contact" class="nav-cta">Book a Free Call</a>
+    <a href="#" class="nav-cta" onclick="openModal('modal-contact'); return false;">Book a Free Call</a>
   </div>
   <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
 </nav>
@@ -1194,7 +1241,7 @@ body {
   <a href="#about" onclick="toggleMobileMenu()">About</a>
   <a href="#pricing" onclick="toggleMobileMenu()">Pricing</a>
   <a href="#testimonials" onclick="toggleMobileMenu()">Stories</a>
-  <a href="#contact" class="nav-cta" onclick="toggleMobileMenu()">Book a Free Call</a>
+  <a href="#" class="nav-cta" onclick="toggleMobileMenu(); setTimeout(function(){ openModal('modal-contact'); }, 320); return false;">Book a Free Call</a>
 </div>
 
 <!-- HERO -->
@@ -1469,7 +1516,7 @@ body {
     <h2>Your Valencia story <em>starts with a conversation</em></h2>
     <p>Book a free 15-minute discovery call with Christa. No pressure, no sales pitch — just honest answers about your move and how we can help.</p>
     <div class="cta-buttons">
-      <a href="#" class="cta-btn-primary">📅 Book Your Free Call</a>
+      <a href="#" class="cta-btn-primary" onclick="openModal('modal-contact'); return false;">📅 Book Your Free Call</a>
       <a href="checklist.html" target="_blank" class="cta-btn-secondary">📄 Download Free Checklist</a>
     </div>
   </div>
@@ -1591,6 +1638,20 @@ document.addEventListener('keydown', function(e) {
     document.body.style.overflow = '';
   }
 });
+
+function handleContactForm(e) {
+  e.preventDefault();
+  var n = document.getElementById('cf-name').value;
+  var em = document.getElementById('cf-email').value;
+  var fr = document.getElementById('cf-from').value || 'Not specified';
+  var tl = document.getElementById('cf-timeline').value || 'Not specified';
+  var msg = document.getElementById('cf-message').value;
+  var sub = 'Free Consultation \u2014 Moving2Valencia';
+  var bod = 'Name: ' + n + '\nEmail: ' + em + '\nCurrently in: ' + fr + '\nTimeline: ' + tl + '\n\nMessage:\n' + msg;
+  window.open('mailto:info@moving2valencia.eu?subject=' + encodeURIComponent(sub) + '&body=' + encodeURIComponent(bod));
+  var f = document.getElementById('contact-form-el');
+  if (f) f.innerHTML = '<div class="contact-success"><h3>\u2713 Message Sent!</h3><p>Christa will be in touch within 1 business day.</p><p style="margin-top:10px;font-size:13px">Or email directly: <a href="mailto:info@moving2valencia.eu">info@moving2valencia.eu</a></p></div>';
+}
 </script>
 
 <!-- ===== SERVICE MODALS ===== -->
@@ -1657,7 +1718,7 @@ document.addEventListener('keydown', function(e) {
       </div>
       <div class="modal-cta">
         <p>Ready to build your personalised relocation timeline?</p>
-        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-preplanning')">&#x1F4C5; Book Your Free 15-Min Call</a>
+        <a href="#" class="modal-cta-btn" onclick="closeModal('modal-preplanning'); openModal('modal-contact'); return false;">&#x1F4C5; Book Your Free 15-Min Call</a>
       </div>
     </div>
   </div>
@@ -1723,7 +1784,7 @@ document.addEventListener('keydown', function(e) {
       </div>
       <div class="modal-cta">
         <p>Let us handle every appointment, form, and queue &mdash; on your behalf.</p>
-        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-legal')">&#x1F4C5; Book Your Free 15-Min Call</a>
+        <a href="#" class="modal-cta-btn" onclick="closeModal('modal-legal'); openModal('modal-contact'); return false;">&#x1F4C5; Book Your Free 15-Min Call</a>
       </div>
     </div>
   </div>
@@ -1791,7 +1852,7 @@ document.addEventListener('keydown', function(e) {
       </div>
       <div class="modal-cta">
         <p>Tell us your ideal neighbourhood, budget, and lifestyle &mdash; we&rsquo;ll find the match.</p>
-        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-home')">&#x1F4C5; Book Your Free 15-Min Call</a>
+        <a href="#" class="modal-cta-btn" onclick="closeModal('modal-home'); openModal('modal-contact'); return false;">&#x1F4C5; Book Your Free 15-Min Call</a>
       </div>
     </div>
   </div>
@@ -1856,7 +1917,7 @@ document.addEventListener('keydown', function(e) {
       </div>
       <div class="modal-cta">
         <p>Let&rsquo;s find the right school before you even arrive in Valencia.</p>
-        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-school')">&#x1F4C5; Book Your Free 15-Min Call</a>
+        <a href="#" class="modal-cta-btn" onclick="closeModal('modal-school'); openModal('modal-contact'); return false;">&#x1F4C5; Book Your Free 15-Min Call</a>
       </div>
     </div>
   </div>
@@ -1926,7 +1987,7 @@ document.addEventListener('keydown', function(e) {
       </div>
       <div class="modal-cta">
         <p>Start feeling at home before you even land in Valencia.</p>
-        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-culture')">&#x1F4C5; Book Your Free 15-Min Call</a>
+        <a href="#" class="modal-cta-btn" onclick="closeModal('modal-culture'); openModal('modal-contact'); return false;">&#x1F4C5; Book Your Free 15-Min Call</a>
       </div>
     </div>
   </div>
@@ -1998,8 +2059,74 @@ document.addEventListener('keydown', function(e) {
       </div>
       <div class="modal-cta">
         <p>Don&rsquo;t navigate the first year alone. We&rsquo;ve done it &mdash; so you don&rsquo;t have to.</p>
-        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-support')">&#x1F4C5; Book Your Free 15-Min Call</a>
+        <a href="#" class="modal-cta-btn" onclick="closeModal('modal-support'); openModal('modal-contact'); return false;">&#x1F4C5; Book Your Free 15-Min Call</a>
       </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTACT / BOOKING MODAL -->
+<div class="modal-overlay" id="modal-contact">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-contact')" aria-label="Close">&#x2715;</button>
+    <div class="modal-hero">
+      <span class="modal-icon">&#x1F4C5;</span>
+      <h2>Book Your <em>Free Call</em></h2>
+      <p class="modal-subtitle">15 minutes with Christa. No pressure, no sales pitch &mdash; just honest answers about your move to Valencia and whether we are the right fit for your family.</p>
+    </div>
+    <div class="modal-body">
+      <div class="contact-options">
+        <a href="https://wa.me/34600000000?text=Hi%20Christa%2C%20I%27d%20love%20to%20book%20a%20free%20consultation%20about%20moving%20to%20Valencia." class="contact-option" target="_blank" rel="noopener">
+          <span class="contact-option-icon">&#x1F4AC;</span>
+          <div>
+            <strong>Message on WhatsApp</strong>
+            <span>Fastest response &mdash; typically within 2 hours during business hours</span>
+          </div>
+        </a>
+        <a href="mailto:info@moving2valencia.eu?subject=Free%20Consultation%20Request" class="contact-option">
+          <span class="contact-option-icon">&#x2709;&#xFE0F;</span>
+          <div>
+            <strong>Email Christa Directly</strong>
+            <span>info@moving2valencia.eu &mdash; response within 1 business day</span>
+          </div>
+        </a>
+      </div>
+      <div class="contact-divider"><span>or send a message below</span></div>
+      <form id="contact-form-el" onsubmit="handleContactForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Full Name *</label>
+            <input type="text" id="cf-name" name="name" placeholder="Jennifer Smith" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email Address *</label>
+            <input type="email" id="cf-email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-from">Currently Living In</label>
+            <input type="text" id="cf-from" name="from" placeholder="e.g. Amsterdam, Netherlands">
+          </div>
+          <div class="form-group">
+            <label for="cf-timeline">Planned Move Timeline</label>
+            <select id="cf-timeline" name="timeline">
+              <option value="">Select a timeframe...</option>
+              <option>Within 3 months</option>
+              <option>3&ndash;6 months</option>
+              <option>6&ndash;12 months</option>
+              <option>1&ndash;2 years</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Tell Christa about your move *</label>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Family size, main concerns, which services you are most interested in, any specific questions..." required></textarea>
+        </div>
+        <button type="submit" class="contact-submit">Send Message &rarr;</button>
+      </form>
     </div>
   </div>
 </div>
