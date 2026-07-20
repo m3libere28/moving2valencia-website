@@ -1247,6 +1247,11 @@ body {
 .contact-success p { color: var(--stone); font-size: 15px; line-height: 1.6; }
 .contact-success a { color: var(--terra); }
 @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+/* ===== PROPOSAL WATERMARK ===== */
+.wm-overlay{position:fixed;inset:0;z-index:9998;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='300'%3E%3Ctext x='260' y='150' font-family='Arial%2Csans-serif' font-size='13' font-weight='700' letter-spacing='5' fill='rgba(196%2C92%2C62%2C0.09)' text-anchor='middle' dominant-baseline='middle' transform='rotate(-38%2C260%2C150)'%3EDESIGN PROPOSAL %E2%80%94 CONFIDENTIAL%3C/text%3E%3C/svg%3E");background-repeat:repeat;background-size:520px 300px;}
+.wm-badge{position:fixed;bottom:20px;right:20px;z-index:9999;background:#C45C3E;color:white;padding:9px 20px;border-radius:30px;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;pointer-events:none;box-shadow:0 4px 28px rgba(196,92,62,0.55);font-family:'Inter',sans-serif;display:flex;align-items:center;gap:8px;}
+.wm-dot{width:6px;height:6px;background:rgba(255,255,255,0.85);border-radius:50%;animation:wmblink 2s ease-in-out infinite;flex-shrink:0;}
+@keyframes wmblink{0%,100%{opacity:1;}50%{opacity:0.25;}}
 </style>
 
 </head>
@@ -2238,5 +2243,7 @@ function handleContactForm(e) {
   </div>
 </div>
 
+<div class="wm-overlay" aria-hidden="true"></div>
+<div class="wm-badge" aria-hidden="true"><span class="wm-dot"></span>Design Proposal</div>
 </body>
 </html>
