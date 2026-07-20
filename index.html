@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving2Valencia — Relocation Services | Valencia, Spain</title>
+<meta name="description" content="Personalized relocation services to Valencia, Spain. 16+ years of experience helping families move seamlessly. Book your free consultation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terra: #C45C3E;
+  --terra-dark: #A3472D;
+  --terra-light: #E8A88A;
+  --mediterranean: #2E8B8B;
+  --mediterranean-light: #7EC4C4;
+  --valencia-orange: #E8913A;
+  --cream: #FAF6F1;
+  --warm-white: #FFFDF9;
+  --charcoal: #2C2420;
+  --stone: #6B5E56;
+  --sand: #E8DDD3;
+  --gold: #C9A84C;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--warm-white);
+  color: var(--charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(255,253,249,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 40px rgba(44,36,32,0.08);
+  padding: 14px 40px;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--terra); font-weight: 700; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--stone);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--terra); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--terra);
+  transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--terra);
+  color: white !important;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav-cta:hover {
+  background: var(--terra-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(196,92,62,0.3);
+}
+.nav-cta::after { display: none !important; }
+.mobile-menu-btn { display: none; font-size: 24px; background: none; border: none; cursor: pointer; color: var(--charcoal); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--cream);
+}
+.hero-bg-pattern {
+  position: absolute;
+  top: 0; right: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--terra-light) 0%, var(--valencia-orange) 50%, var(--mediterranean-light) 100%);
+  opacity: 0.08;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.hero-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 140px 60px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-left { max-width: 580px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(196,92,62,0.08);
+  color: var(--terra);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-badge .dot {
+  width: 6px; height: 6px;
+  background: var(--terra);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px;
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--charcoal);
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--terra);
+  font-weight: 500;
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--stone);
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.btn-primary {
+  background: var(--terra);
+  color: white;
+  padding: 16px 36px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: var(--terra-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196,92,62,0.35);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--charcoal);
+  padding: 16px 36px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1.5px solid var(--sand);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.btn-secondary:hover {
+  border-color: var(--terra);
+  color: var(--terra);
+  transform: translateY(-2px);
+}
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.hero-trust-avatars {
+  display: flex;
+}
+.hero-trust-avatars .avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 3px solid var(--warm-white);
+  margin-left: -12px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+.hero-trust-avatars .avatar:first-child { margin-left: 0; }
+.hero-trust-text {
+  font-size: 13px;
+  color: var(--stone);
+  line-height: 1.5;
+}
+.hero-trust-text strong {
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+.hero-right {
+  position: relative;
+  height: 600px;
+}
+.hero-image-main {
+  position: absolute;
+  top: 0; right: 0;
+  width: 90%;
+  height: 85%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(44,36,32,0.2);
+}
+.hero-image-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-floating-card {
+  position: absolute;
+  bottom: 40px; left: 0;
+  background: white;
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(44,36,32,0.12);
+  max-width: 280px;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.hero-floating-card .stars {
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.hero-floating-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--charcoal);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+.hero-floating-card .author {
+  font-size: 12px;
+  color: var(--stone);
+  font-weight: 600;
+}
+.hero-floating-card .author span {
+  font-weight: 400;
+  color: var(--terra);
+}
+.hero-stats {
+  position: absolute;
+  top: 60px; left: -20px;
+  background: white;
+  padding: 18px 24px;
+  border-radius: 14px;
+  box-shadow: 0 15px 50px rgba(44,36,32,0.1);
+  text-align: center;
+  animation: float 5s ease-in-out infinite 0.5s;
+}
+.hero-stats .number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--terra);
+  line-height: 1;
+}
+.hero-stats .label {
+  font-size: 11px;
+  color: var(--stone);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ===== SECTION STYLES ===== */
+.section {
+  padding: 120px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 80px;
+}
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 16px;
+}
+.section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+}
+.section h2 em {
+  font-style: italic;
+  color: var(--terra);
+}
+.section-desc {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+
+/* ===== SERVICES ===== */
+.services-section { background: white; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.service-card {
+  background: var(--warm-white);
+  border-radius: 20px;
+  padding: 0;
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--terra), var(--valencia-orange));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+  z-index: 2;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(44,36,32,0.1);
+  border-color: var(--sand);
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.service-card:hover .service-card-image img {
+  transform: scale(1.05);
+}
+.service-card-content {
+  padding: 32px 32px 40px;
+}
+.service-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.service-card:nth-child(1) .service-icon { background: rgba(196,92,62,0.1); }
+.service-card:nth-child(2) .service-icon { background: rgba(46,139,139,0.1); }
+.service-card:nth-child(3) .service-icon { background: rgba(232,145,58,0.1); }
+.service-card:nth-child(4) .service-icon { background: rgba(201,168,76,0.1); }
+.service-card:nth-child(5) .service-icon { background: rgba(196,92,62,0.1); }
+.service-card:nth-child(6) .service-icon { background: rgba(46,139,139,0.1); }
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--charcoal);
+}
+.service-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--stone);
+  margin-bottom: 20px;
+}
+.service-card .learn-more {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--terra);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.3s;
+}
+.service-card:hover .learn-more { gap: 10px; }
+
+/* ===== ABOUT / FOUNDER ===== */
+.about-section { background: var(--cream); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.about-image {
+  position: relative;
+}
+.about-image-frame {
+  width: 100%;
+  height: 560px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(44,36,32,0.15);
+}
+.about-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-image-badge {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  background: white;
+  padding: 24px 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(44,36,32,0.12);
+  text-align: center;
+}
+.about-image-badge .number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--terra);
+  line-height: 1;
+}
+.about-image-badge .label {
+  font-size: 12px;
+  color: var(--stone);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+.about-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: var(--charcoal);
+}
+.about-content h3 em { font-style: italic; color: var(--terra); }
+.about-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--stone);
+  margin-bottom: 20px;
+}
+.about-quote {
+  border-left: 3px solid var(--terra);
+  padding-left: 24px;
+  margin: 32px 0;
+}
+.about-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--charcoal);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.about-quote .author {
+  font-size: 14px;
+  color: var(--terra);
+  font-weight: 600;
+}
+.about-timeline {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--sand);
+}
+.timeline-item { text-align: center; }
+.timeline-item .year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--terra);
+}
+.timeline-item .event {
+  font-size: 13px;
+  color: var(--stone);
+  margin-top: 4px;
+  max-width: 120px;
+}
+
+/* ===== PRICING ===== */
+.pricing-section { background: white; }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: start;
+}
+.pricing-card {
+  background: var(--warm-white);
+  border-radius: 24px;
+  padding: 48px 36px;
+  position: relative;
+  transition: all 0.4s;
+  border: 2px solid transparent;
+}
+.pricing-card.featured {
+  background: var(--charcoal);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 30px 80px rgba(44,36,32,0.25);
+  border-color: var(--terra);
+}
+.pricing-card.featured .pricing-name,
+.pricing-card.featured .pricing-desc,
+.pricing-card.featured .pricing-price,
+.pricing-card.featured .pricing-features li { color: white; }
+.pricing-card.featured .pricing-features li::before { color: var(--valencia-orange); }
+.pricing-badge {
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--terra);
+  color: white;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.pricing-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--charcoal);
+}
+.pricing-desc {
+  font-size: 14px;
+  color: var(--stone);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.pricing-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.pricing-price span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--stone);
+  font-family: 'Inter', sans-serif;
+}
+.pricing-note {
+  font-size: 13px;
+  color: var(--stone);
+  margin-bottom: 32px;
+}
+.pricing-features { list-style: none; margin-bottom: 36px; }
+.pricing-features li {
+  font-size: 14px;
+  color: var(--stone);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--sand);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pricing-features li::before {
+  content: '✓';
+  color: var(--terra);
+  font-weight: 700;
+  font-size: 16px;
+}
+.pricing-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+.pricing-card:not(.featured) .pricing-btn {
+  background: var(--terra);
+  color: white;
+}
+.pricing-card:not(.featured) .pricing-btn:hover {
+  background: var(--terra-dark);
+  transform: translateY(-2px);
+}
+.pricing-card.featured .pricing-btn {
+  background: var(--terra);
+  color: white;
+}
+.pricing-card.featured .pricing-btn:hover {
+  background: var(--terra-light);
+  color: var(--charcoal);
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-section { background: var(--cream); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.testimonial-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 36px;
+  transition: all 0.4s;
+  position: relative;
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(44,36,32,0.08);
+}
+.testimonial-card .quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  color: var(--terra);
+  opacity: 0.15;
+  line-height: 0.5;
+  margin-bottom: 16px;
+}
+.testimonial-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--charcoal);
+  margin-bottom: 28px;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.testimonial-author .avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.testimonial-author .name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--charcoal);
+}
+.testimonial-author .meta {
+  font-size: 13px;
+  color: var(--stone);
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: linear-gradient(135deg, var(--charcoal) 0%, #3D322C 100%);
+  padding: 120px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-bg-image {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-size: cover;
+  background-position: center;
+}
+.cta-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--charcoal) 0%, #3D322C 100%);
+  opacity: 0.85;
+}
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+.cta-section h2 em { font-style: italic; color: var(--terra-light); }
+.cta-section p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.cta-btn-primary {
+  background: var(--terra);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.cta-btn-primary:hover {
+  background: var(--terra-light);
+  color: var(--charcoal);
+  transform: translateY(-2px);
+}
+.cta-btn-secondary {
+  background: transparent;
+  color: white;
+  padding: 18px 40px;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.cta-btn-secondary:hover {
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--charcoal);
+  color: white;
+  padding: 80px 60px 40px;
+}
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand .logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.footer-brand .logo span { color: var(--terra-light); }
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 24px;
+  max-width: 300px;
+}
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+.footer-social a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.footer-social a:hover {
+  background: var(--terra);
+  transform: translateY(-2px);
+}
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 24px;
+}
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 14px;
+  transition: color 0.3s;
+}
+.footer-col a:hover { color: var(--terra-light); }
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ===== MOBILE MENU OVERLAY ===== */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,36,32,0.5);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.mobile-overlay.active { opacity: 1; pointer-events: all; }
+.mobile-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 80%;
+  max-width: 360px;
+  height: 100%;
+  background: white;
+  z-index: 1001;
+  padding: 80px 40px 40px;
+  transition: right 0.4s ease;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+}
+.mobile-menu.active { right: 0; }
+.mobile-menu a {
+  display: block;
+  font-size: 18px;
+  color: var(--charcoal);
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--sand);
+  font-weight: 500;
+}
+.mobile-menu .nav-cta {
+  margin-top: 24px;
+  text-align: center;
+  display: block;
+}
+.mobile-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--charcoal);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero-content { grid-template-columns: 1fr; gap: 60px; padding: 140px 40px 80px; }
+  .hero-right { height: 400px; order: -1; }
+  .hero h1 { font-size: 52px; }
+  .hero-image-main { width: 100%; height: 100%; }
+  .hero-floating-card { display: none; }
+  .hero-stats { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 60px; }
+  .about-image { order: -1; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .pricing-card.featured { transform: none; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .section { padding: 80px 24px; }
+  .hero { min-height: auto; padding: 100px 0 60px; }
+  .hero-content { padding: 0 24px; }
+  .hero h1 { font-size: 40px; }
+  .hero-subtitle { font-size: 16px; }
+  .hero-ctas { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .section h2 { font-size: 36px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-image-frame { height: 400px; }
+  .about-timeline { flex-wrap: wrap; gap: 20px; }
+  .cta-section { padding: 80px 24px; }
+  .cta-section h2 { font-size: 36px; }
+  .cta-buttons { flex-direction: column; }
+  .cta-btn-primary, .cta-btn-secondary { width: 100%; }
+  .footer { padding: 60px 24px 30px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="navbar">
+  <a href="#" class="nav-logo">moving<span>2</span>valencia</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Stories</a>
+    <a href="#contact" class="nav-cta">Book a Free Call</a>
+  </div>
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
+  <a href="#services" onclick="toggleMobileMenu()">Services</a>
+  <a href="#about" onclick="toggleMobileMenu()">About</a>
+  <a href="#pricing" onclick="toggleMobileMenu()">Pricing</a>
+  <a href="#testimonials" onclick="toggleMobileMenu()">Stories</a>
+  <a href="#contact" class="nav-cta" onclick="toggleMobileMenu()">Book a Free Call</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Trusted by 500+ families since 2008
+      </div>
+      <h1>Moving to Valencia should feel like <em>coming home</em></h1>
+      <p class="hero-subtitle">Not a bureaucratic maze. For 16 years, Christa has guided families through every step — from NIE paperwork to finding the perfect neighborhood — so you can start living from day one.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Book a Free 15-Min Call →</a>
+        <a href="#" class="btn-secondary">📄 Download Free Checklist</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-avatars">
+          <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop')">JS</div>
+          <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop')">MK</div>
+          <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop')">AL</div>
+          <div class="avatar" style="background: linear-gradient(135deg, var(--terra), var(--terra-dark))">+</div>
+        </div>
+        <div class="hero-trust-text">
+          <strong>4.9/5</strong> from 120+ reviews<br>
+          <span style="color: var(--gold);">★★★★★</span> on Google
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-main">
+        <img src="https://www.spain.info/bdb2a0818478d6dd488caa40aae0cc848e7ed6f1.jpg" alt="Valencia Mediterranean coast at sunset with terracotta rooftops">
+      </div>
+      <div class="hero-floating-card">
+        <div class="stars">★★★★★</div>
+        <p>"Christa made our move from San Francisco feel effortless. We were settled in 3 weeks."</p>
+        <div class="author">Jennifer S. <span>— Moved 2024</span></div>
+      </div>
+      <div class="hero-stats">
+        <div class="number">16</div>
+        <div class="label">Years of<br>Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services-section" id="services">
+  <div class="section-header reveal">
+    <div class="section-label">What We Do</div>
+    <h2>Everything you need for a <em>seamless</em> relocation</h2>
+    <p class="section-desc">From the moment you decide to move until you're sipping horchata in your new neighborhood. We handle the complexity so you don't have to.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-card-image">
+        <img src="https://www.pacificprime.com/a25e02753476ecdad41c83ba81c493492d347ece.webp" alt="Happy family planning their move to Spain">
+      </div>
+      <div class="service-card-content">
+        <div class="service-icon">📋</div>
+        <h3>Pre-Move Planning</h3>
+        <p>Personalized timeline, document checklist, and a dedicated relocation roadmap tailored to your family's needs and timeline.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-image">
+        <img src="https://www.hilivsolution.com/0dd56eb23ed55ef687986ed369baa722b39af879" alt="Spanish NIE card and residency paperwork">
+      </div>
+      <div class="service-card-content">
+        <div class="service-icon">🛂</div>
+        <h3>Legal & Formalities</h3>
+        <p>NIE applications, residency permits, bank account setup, and health insurance — we navigate Spanish bureaucracy so you don't have to.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-image">
+        <img src="https://cf.bstatic.com/75b8c263901dee660ea132be804da67e018d27a9.jpg" alt="Modern Valencia apartment interior">
+      </div>
+      <div class="service-card-content">
+        <div class="service-icon">🏠</div>
+        <h3>Home Finding</h3>
+        <p>Neighborhood tours, property viewings, lease negotiation, and utility setup. We find the home that fits your lifestyle.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-image">
+        <img src="https://foundvalencia.com/6f455e7976dcd1db642ec0a6653d86f7e2a3aff4.webp" alt="International school classroom in Valencia">
+      </div>
+      <div class="service-card-content">
+        <div class="service-icon">🎓</div>
+        <h3>School Search</h3>
+        <p>From international schools to local gems, we match your children with the right educational environment and handle enrollment.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-image">
+        <img src="https://www.spainfoodsherpas.com/ffe09f0a1129cad440af12399715499c3d0d2d40.jpg" alt="Traditional Valencian paella">
+      </div>
+      <div class="service-card-content">
+        <div class="service-icon">🤝</div>
+        <h3>Intercultural Coaching</h3>
+        <p>Understand Spanish customs, build your social network, and integrate smoothly into Valencia's vibrant community.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-card-image">
+        <img src="https://www.ambiatours.com/24421893fa61839425c9d3fef28d6bacb75d2672.jpg" alt="Valencia harbor at sunset">
+      </div>
+      <div class="service-card-content">
+        <div class="service-icon">🌐</div>
+        <h3>Ongoing Support</h3>
+        <p>Your Valencia ally for the first year and beyond. Questions, emergencies, or just need a restaurant recommendation? We're here.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / FOUNDER -->
+<section class="section about-section" id="about">
+  <div class="about-grid">
+    <div class="about-image reveal">
+      <div class="about-image-frame">
+        <img src="https://img.magnific.com/f486afe53acaea61a0f3268a91cc7d3b88510c2b.jpg" alt="Christa van der Meer, founder of Moving2Valencia">
+      </div>
+      <div class="about-image-badge">
+        <div class="number">500+</div>
+        <div class="label">Families<br>Relocated</div>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <div class="section-label">Meet Your Guide</div>
+      <h3>From opera stadiums to <em>your front door</em></h3>
+      <p>Before Valencia, I spent 30 years as a master coordinator for large-scale opera productions across Europe — managing hundreds of artists, deadlines, and moving parts in stadiums across the Netherlands, France, Belgium, and Germany.</p>
+      <p>In 2004, I made the leap with my own family. I know exactly how it feels to stand on the other side of that decision.</p>
+      <div class="about-quote">
+        <p>"I founded Moving2Valencia because I believe no one should navigate Spanish bureaucracy alone. Your move should feel like coming home — not surviving an obstacle course."</p>
+        <div class="author">— Christa van der Meer, Founder</div>
+      </div>
+      <div class="about-timeline">
+        <div class="timeline-item">
+          <div class="year">2004</div>
+          <div class="event">Moved to Valencia with family</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2008</div>
+          <div class="event">Founded Moving2Valencia</div>
+        </div>
+        <div class="timeline-item">
+          <div class="year">2024</div>
+          <div class="event">500+ families relocated</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-header reveal">
+    <div class="section-label">Investment</div>
+    <h2>Transparent pricing, <em>zero surprises</em></h2>
+    <p class="section-desc">Choose the support level that fits your move. Every package includes Christa's personal attention and our network of trusted professionals.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card reveal">
+      <div class="pricing-name">Essential</div>
+      <div class="pricing-desc">For solo movers & digital nomads</div>
+      <div class="pricing-price">€1,950<span> / starting at</span></div>
+      <div class="pricing-note">One-time fee, no hidden costs</div>
+      <ul class="pricing-features">
+        <li>Pre-move consultation & timeline</li>
+        <li>NIE application support</li>
+        <li>Bank account setup</li>
+        <li>2-day Valencia orientation tour</li>
+        <li>Health insurance guidance</li>
+        <li>30-day post-move support</li>
+      </ul>
+      <button class="pricing-btn">Get Started</button>
+    </div>
+    <div class="pricing-card featured reveal">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-name">Family</div>
+      <div class="pricing-desc">For families with children</div>
+      <div class="pricing-price">€3,450<span> / starting at</span></div>
+      <div class="pricing-note">One-time fee, no hidden costs</div>
+      <ul class="pricing-features">
+        <li>Everything in Essential</li>
+        <li>School search & enrollment</li>
+        <li>Neighborhood deep-dive (3 days)</li>
+        <li>Home finding with lease negotiation</li>
+        <li>Pediatrician & family doctor setup</li>
+        <li>Intercultural family workshop</li>
+        <li>90-day post-move support</li>
+      </ul>
+      <button class="pricing-btn">Get Started</button>
+    </div>
+    <div class="pricing-card reveal">
+      <div class="pricing-name">Executive</div>
+      <div class="pricing-desc">White-glove corporate relocation</div>
+      <div class="pricing-price">Custom<span> / tailored</span></div>
+      <div class="pricing-note">Bespoke service for complex moves</div>
+      <ul class="pricing-features">
+        <li>Everything in Family</li>
+        <li>Interim housing coordination</li>
+        <li>Spouse career support</li>
+        <li>Vehicle import & registration</li>
+        <li>Tax & financial advisory intro</li>
+        <li>Priority response (same day)</li>
+        <li>12-month ongoing support</li>
+      </ul>
+      <button class="pricing-btn">Contact Us</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section" id="testimonials">
+  <div class="section-header reveal">
+    <div class="section-label">Client Stories</div>
+    <h2>Real families, <em>real transformations</em></h2>
+    <p class="section-desc">Don't just take our word for it. Here's what families who've made the leap with us have to say.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p>Moving from San Francisco to Valencia felt overwhelming until we found Christa. She handled every detail — our NIE, bank account, and even found us the perfect apartment in Ruzafa before we arrived. We were fully settled in 3 weeks.</p>
+      <div class="testimonial-author">
+        <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop')">JS</div>
+        <div>
+          <div class="name">Jennifer & Steven</div>
+          <div class="meta">San Francisco → Valencia, 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p>As a single mother moving with two teenagers, I was terrified. Christa didn't just find us a school — she found us a community. Her intercultural workshop helped my kids make friends before their first day of class.</p>
+      <div class="testimonial-author">
+        <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop')">MK</div>
+        <div>
+          <div class="name">Maria K.</div>
+          <div class="meta">Berlin → Valencia, 2023</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p>We interviewed three relocation companies. Christa was the only one who asked about our daughter's learning style before recommending schools. That level of care is why we chose her — and why we'll recommend her forever.</p>
+      <div class="testimonial-author">
+        <div class="avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop')">AL</div>
+        <div>
+          <div class="name">Anders & Lisa</div>
+          <div class="meta">Copenhagen → Valencia, 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg-image" style="background-image: url('https://stevenhiggs.com/12606b93321b88fa60d0dfdebed7a4bb6754c80b.jpg')"></div>
+  <div class="cta-bg-overlay"></div>
+  <div class="cta-content">
+    <h2>Your Valencia story <em>starts with a conversation</em></h2>
+    <p>Book a free 15-minute discovery call with Christa. No pressure, no sales pitch — just honest answers about your move and how we can help.</p>
+    <div class="cta-buttons">
+      <a href="#" class="cta-btn-primary">📅 Book Your Free Call</a>
+      <a href="#" class="cta-btn-secondary">📄 Download Free Checklist</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">moving<span>2</span>valencia</div>
+      <p>Creating unprecedented ease and joy in your relocation to Valencia, Spain. Founded in 2008 by Christa van der Meer.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="YouTube">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Pre-Move Planning</a>
+      <a href="#">Legal & Formalities</a>
+      <a href="#">Home Finding</a>
+      <a href="#">School Search</a>
+      <a href="#">Intercultural Coaching</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Christa</a>
+      <a href="#">Our Process</a>
+      <a href="#">Client Stories</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#">Free Relocation Checklist</a>
+      <a href="#">Neighborhood Guide</a>
+      <a href="#">Cost of Living Calculator</a>
+      <a href="#">School Comparison</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 Moving2Valencia. All rights reserved.</div>
+    <div>Valencia, Spain · info@moving2valencia.eu</div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Mobile menu
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('active');
+  document.getElementById('mobileOverlay').classList.toggle('active');
+  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('active') ? 'hidden' : '';
+}
+
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>
