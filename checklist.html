@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valencia Relocation Checklist — Moving2Valencia</title>
+<meta name="description" content="Your complete step-by-step relocation checklist for moving to Valencia, Spain. From pre-move documents to year one admin milestones.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terra: #C45C3E;
+  --terra-dark: #A3472D;
+  --mediterranean: #2E8B8B;
+  --cream: #FAF6F1;
+  --charcoal: #2C2420;
+  --stone: #6B5E56;
+  --sand: #E8DDD3;
+  --gold: #C9A84C;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== PRINT BUTTON BAR ===== */
+.print-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--charcoal);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+.print-bar-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+.print-bar-logo span { color: var(--terra); }
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--terra);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-height: 44px;
+  font-family: 'Inter', sans-serif;
+}
+.print-btn:hover {
+  background: var(--terra-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(196,92,62,0.4);
+}
+.print-bar-note {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 40px 80px;
+}
+
+/* ===== HEADER ===== */
+.checklist-header {
+  text-align: center;
+  padding: 48px 0 40px;
+  border-bottom: 2px solid var(--sand);
+  margin-bottom: 48px;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(196,92,62,0.1);
+  color: var(--terra);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.checklist-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.checklist-header h1 em {
+  color: var(--terra);
+  font-style: italic;
+}
+.checklist-header p {
+  font-size: 16px;
+  color: var(--stone);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto 28px;
+}
+.header-meta {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.header-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--stone);
+}
+.header-meta-item strong { color: var(--charcoal); font-weight: 600; }
+.meta-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--terra);
+  flex-shrink: 0;
+}
+
+/* ===== PHASE SECTIONS ===== */
+.phase {
+  margin-bottom: 44px;
+  break-inside: avoid;
+}
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--sand);
+}
+.phase-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--terra);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.phase-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.1;
+}
+.phase-subtitle {
+  font-size: 13px;
+  color: var(--stone);
+  margin-top: 2px;
+}
+
+/* ===== CHECKLIST ITEMS ===== */
+.checklist-group {
+  margin-bottom: 20px;
+}
+.group-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--terra);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(232,221,211,0.8);
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: background 0.15s;
+  margin-bottom: 4px;
+}
+.checklist-item:hover { background: rgba(232,221,211,0.3); }
+.checklist-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--sand);
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 1px;
+  accent-color: var(--terra);
+}
+.checklist-item label {
+  font-size: 14.5px;
+  color: var(--charcoal);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.checklist-item label em {
+  color: var(--stone);
+  font-style: normal;
+  font-size: 13px;
+  display: block;
+  margin-top: 2px;
+}
+.checklist-item label strong { color: var(--terra); font-weight: 600; }
+
+/* ===== NOTE BOXES ===== */
+.checklist-note {
+  background: rgba(196,92,62,0.06);
+  border-left: 3px solid var(--terra);
+  padding: 14px 18px;
+  border-radius: 0 10px 10px 0;
+  margin: 20px 0;
+  font-size: 13.5px;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+.checklist-note strong { color: var(--terra); }
+
+/* ===== TWO COLUMN GRID ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+
+/* ===== FOOTER ===== */
+.checklist-footer {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 2px solid var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+.footer-brand span { color: var(--terra); }
+.footer-info {
+  font-size: 13px;
+  color: var(--stone);
+  text-align: right;
+  line-height: 1.6;
+}
+.footer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--terra);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.footer-cta:hover { background: var(--terra-dark); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 680px) {
+  .page { padding: 24px 20px 60px; }
+  .checklist-header h1 { font-size: 36px; }
+  .print-bar { padding: 12px 20px; flex-wrap: wrap; gap: 10px; }
+  .print-bar-note { display: none; }
+  .two-col { grid-template-columns: 1fr; }
+  .checklist-footer { flex-direction: column; text-align: center; }
+  .footer-info { text-align: center; }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .print-bar { display: none !important; }
+  body { background: white; font-size: 11pt; }
+  .page { max-width: 100%; padding: 0; }
+  .checklist-header { padding: 20px 0 24px; margin-bottom: 28px; }
+  .checklist-header h1 { font-size: 34pt; }
+  .phase { break-inside: avoid; margin-bottom: 24px; }
+  .checklist-item { padding: 6px 8px; }
+  .checklist-item input[type="checkbox"] {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .checklist-footer { margin-top: 32px; }
+  .footer-cta { display: none; }
+  .two-col { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar">
+  <a href="index.html" class="print-bar-logo">moving<span>2</span>valencia</a>
+  <span class="print-bar-note">Tick items off online, or save as PDF</span>
+  <button class="print-btn" onclick="window.print()">
+    &#x1F4C4; Download as PDF
+  </button>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="checklist-header">
+    <div class="header-badge">
+      <span>&#x2713;</span> Free Relocation Checklist
+    </div>
+    <h1>Your Valencia Move<br><em>Made Simple</em></h1>
+    <p>A comprehensive, phase-by-phase checklist covering everything you need from your first research call to your first Spanish tax return &mdash; for EU and non-EU citizens alike.</p>
+    <div class="header-meta">
+      <div class="header-meta-item"><div class="meta-dot"></div><strong>9 phases</strong> &nbsp;from planning to year one</div>
+      <div class="header-meta-item"><div class="meta-dot"></div><strong>80+ action items</strong> &nbsp;all fact-checked</div>
+      <div class="header-meta-item"><div class="meta-dot"></div>Updated <strong>2024</strong></div>
+    </div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">1</div>
+      <div>
+        <div class="phase-title">Research &amp; Decision</div>
+        <div class="phase-subtitle">Before you commit &mdash; gather the facts</div>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Finances &amp; Visa Eligibility</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="r1">
+        <label for="r1">Determine your visa type: EU Citizen Certificate, Non-Lucrative Visa, Digital Nomad Visa, or Golden Visa <em>Non-EU citizens must apply from home country before travelling</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="r2">
+        <label for="r2">Calculate your monthly income vs. Valencia cost of living <em>Target minimum: &euro;2,000/month for a comfortable single life; &euro;3,500+ for a family of 4</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="r3">
+        <label for="r3">Research Spanish double-taxation treaty with your home country <em>Spain has agreements with 100+ countries; consult a cross-border tax adviser</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="r4">
+        <label for="r4">Decide on target neighbourhood in Valencia based on family needs, commute, and budget</label>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">School &amp; Work Research</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="r5">
+        <label for="r5">Research school options: public, concertado, and international <em>Visit school websites; note enrollment calendar (February&ndash;April for September intake)</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="r6">
+        <label for="r6">If working remotely: confirm employer permits working from Spain legally</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="r7">
+        <label for="r7">Join expat communities online for first-hand insights <em>Valencia Expats (Facebook), InterNations Valencia, Moving2Valencia community</em></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">2</div>
+      <div>
+        <div class="phase-title">6&ndash;12 Months Before (Non-EU) &nbsp;/&nbsp; 3&ndash;6 Months Before (EU)</div>
+        <div class="phase-subtitle">Documents, visa application &amp; logistics</div>
+      </div>
+    </div>
+    <div class="checklist-note">
+      <strong>Non-EU citizens:</strong> Begin at least 6&ndash;12 months before your target move date. Visa processing at the Spanish Consulate typically takes 1&ndash;3 months, and gathering apostilled documents takes 4&ndash;8 weeks.
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Document Gathering</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d1">
+        <label for="d1">Valid passport for all family members <em>Check: minimum 1 year remaining validity recommended; renew if needed</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d2">
+        <label for="d2">Obtain apostilled birth certificates for all family members <em>Request from your national records office; apostille required for Spain</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d3">
+        <label for="d3">Obtain apostilled marriage certificate (if applicable)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d4">
+        <label for="d4">Obtain apostilled criminal background check <em>Must be issued within 3&ndash;6 months of visa application; check home country requirements</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d5">
+        <label for="d5">Arrange certified Spanish translations (<em>traducci&oacute;n jurada</em>) for all apostilled documents <em>Use a sworn translator (traductor jurado) authorised by the Spanish Ministry of Foreign Affairs</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d6">
+        <label for="d6">Gather financial proof: 12 months of bank statements, pension letters, or investment income documentation <em>Non-Lucrative Visa requires approx. &euro;28,800+/year (400% IPREM 2024, updated annually)</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d7">
+        <label for="d7">Purchase qualifying private health insurance policy <em>Mandatory for NLV and Digital Nomad Visa applicants. Providers: Adeslas, Sanitas, Asisa, Cigna</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="d8">
+        <label for="d8">Take biometric passport photos for all family members</label>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Visa Application (Non-EU Only)</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="v1">
+        <label for="v1">Book appointment at your nearest Spanish Consulate <em>Availability varies; book as early as possible</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="v2">
+        <label for="v2">Submit complete visa application with all supporting documents</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="v3">
+        <label for="v3">Receive visa approval and note the entry deadline <em>You must enter Spain within the visa validity period (typically 1 month from issuance)</em></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">3</div>
+      <div>
+        <div class="phase-title">3&ndash;4 Months Before</div>
+        <div class="phase-subtitle">Logistics, housing search &amp; schools</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="checklist-group">
+        <div class="group-label">Housing</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="h1">
+          <label for="h1">Shortlist Valencia neighbourhoods based on school locations, commute, and lifestyle</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="h2">
+          <label for="h2">Prepare rental dossier: passport copy, NIE application status, 3 months bank statements, proof of income</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="h3">
+          <label for="h3">Arrange short-term rental or furnished accommodation for first 4&ndash;8 weeks on arrival</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="h4">
+          <label for="h4">Research property portals: Idealista, Fotocasa, Habitaclia</label>
+        </div>
+      </div>
+      <div class="checklist-group">
+        <div class="group-label">Schools</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="s1">
+          <label for="s1">Contact international schools directly; request information packs and visit days</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="s2">
+          <label for="s2">Gather previous school reports and transcripts in English (or Spanish translation)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="s3">
+          <label for="s3">Submit international school applications (many schools have application fees of &euro;100&ndash;300)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="s4">
+          <label for="s4">If targeting state or concertado schools: note February&ndash;April enrollment window with Conselleria d&rsquo;Educaci&oacute;</label>
+        </div>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Shipping &amp; Logistics</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="sh1">
+        <label for="sh1">Get at least 3 quotes from international removal companies <em>Sea freight from North America: 4&ndash;6 weeks. From Northern Europe: 1&ndash;2 weeks</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="sh2">
+        <label for="sh2">Book removal/shipping company and confirm insurance coverage</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="sh3">
+        <label for="sh3">Check EU customs rules for importing personal effects duty-free (items must be 6+ months old if you are EU citizen; if non-EU, check with your removal company)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="sh4">
+        <label for="sh4">If shipping a vehicle: research ITV inspection and DGT re-registration requirements for non-EU vehicles</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">4</div>
+      <div>
+        <div class="phase-title">1&ndash;2 Months Before</div>
+        <div class="phase-subtitle">Financial, administrative &amp; personal preparation</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="checklist-group">
+        <div class="group-label">Financial Preparation</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="f1">
+          <label for="f1">Open a Revolut, N26, or Wise account as a bridge account before Spanish bank NIE requirement is met</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="f2">
+          <label for="f2">Notify your home country bank of your move abroad</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="f3">
+          <label for="f3">Transfer sufficient funds to cover: first + last month rent, deposit (1&ndash;2 months), setup costs &mdash; budget &euro;5,000&ndash;10,000 for setup</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="f4">
+          <label for="f4">Research Spanish tax implications for your income type (consult a cross-border tax adviser or <em>gestor&iacute;a</em>)</label>
+        </div>
+      </div>
+      <div class="checklist-group">
+        <div class="group-label">Personal &amp; Medical</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="m1">
+          <label for="m1">Collect 3&ndash;6 months of prescription medications to bring with you</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="m2">
+          <label for="m2">Obtain medical records and vaccination history from your GP</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="m3">
+          <label for="m3">Dental check-up before departure (public dentistry is limited in Spain; private dental costs: &euro;40&ndash;150 per visit)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="m4">
+          <label for="m4">Research English-speaking doctors and therapists in Valencia via expat community forums</label>
+        </div>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Admin Before You Leave</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="a1">
+        <label for="a1">Set up mail forwarding or a virtual mailbox in your home country</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="a2">
+        <label for="a2">Cancel or transfer home country memberships, subscriptions, and direct debits</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="a3">
+        <label for="a3">Inform home country tax authority of your departure date <em>This affects tax residency in your home country</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="a4">
+        <label for="a4">Notify pension provider, investment accounts, and insurance companies of new address</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">5</div>
+      <div>
+        <div class="phase-title">First Week in Valencia</div>
+        <div class="phase-subtitle">The critical first steps &mdash; priority order matters</div>
+      </div>
+    </div>
+    <div class="checklist-note">
+      <strong>Priority order:</strong> Empadronamiento first &rarr; NIE appointment &rarr; bank account. Each step enables the next. Do not delay any of these.
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Immediate Actions</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="w1">
+        <label for="w1">Register temporary accommodation address (even an Airbnb works for initial empadronamiento) <em>You will need an original rental contract or letter from the accommodation provider</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="w2">
+        <label for="w2">Book <em>empadronamiento</em> appointment at local Ayuntamiento (Valencia.es or in person) <em>Bring: passport + original rental contract or property deed</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="w3">
+        <label for="w3">Book NIE appointment at Extranjer&iacute;a or National Police via Sede Electr&oacute;nica <em>Have Tasa 790/012 form completed and fee paid (&euro;10.60) before appointment</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="w4">
+        <label for="w4">Get a Spanish SIM card (Movistar, Vodafone, Orange, or low-cost DIGI) <em>A Spanish phone number is needed for most online registration processes</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="w5">
+        <label for="w5">Explore your target neighbourhood on foot; locate nearest health centre, pharmacy, supermarket, and school</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="w6">
+        <label for="w6">Download Valencia City Council app and Metr&oacute; Valencia app</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">6</div>
+      <div>
+        <div class="phase-title">First Month</div>
+        <div class="phase-subtitle">Legal registration, banking &amp; housing</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="checklist-group">
+        <div class="group-label">Legal &amp; Registration</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="l1">
+          <label for="l1">Attend NIE appointment; receive NIE number <em>EU citizens receive green Certificado de Registro; non-EU citizens apply for TIE</em></label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="l2">
+          <label for="l2">Complete empadronamiento; collect Volante de Empadronamiento</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="l3">
+          <label for="l3">Non-EU citizens: apply for TIE (residency card) at National Police <em>Appointment via extranjeria.seat.gob.es; bring passport, visa, photos, and Tasa 052 paid</em></label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="l4">
+          <label for="l4">Register with Social Security (Seguridad Social) if employed or self-employed in Spain</label>
+        </div>
+      </div>
+      <div class="checklist-group">
+        <div class="group-label">Banking &amp; Finance</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="b1">
+          <label for="b1">Open Spanish bank account (BBVA, CaixaBank, or Sabadell recommended) <em>Bring: passport, NIE, empadronamiento, proof of income</em></label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="b2">
+          <label for="b2">Set up direct debits for rent, utilities, and insurance from new Spanish account</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="b3">
+          <label for="b3">Contact a local <em>gestor&iacute;a</em> (accountant/administrator) for ongoing tax and admin support</label>
+        </div>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Housing &amp; Utilities</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="u1">
+        <label for="u1">Sign long-term rental contract; check it meets LAU requirements (5 or 7 year minimum protection) <em>Never sign a contract without your NIE number</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="u2">
+        <label for="u2">Transfer electricity contract to your name (Iberdrola, Endesa, or Naturgy are main providers)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="u3">
+        <label for="u3">Transfer water, gas, and internet contracts to your name</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="u4">
+        <label for="u4">Update empadronamiento with your permanent address (if different from initial registration)</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 7 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">7</div>
+      <div>
+        <div class="phase-title">First 1&ndash;3 Months</div>
+        <div class="phase-subtitle">Healthcare, schools &amp; everyday life</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="checklist-group">
+        <div class="group-label">Healthcare</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="hc1">
+          <label for="hc1">Apply for Tarjeta SIP (Valencian health card) at nearest Centro de Salud <em>Bring: empadronamiento + NIE/TIE + Social Security number (or private insurance for non-SS payers)</em></label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="hc2">
+          <label for="hc2">Register with a GP (<em>m&eacute;dico de cabecera</em>) at your local health centre</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="hc3">
+          <label for="hc3">Register children with a paediatrician (<em>pediatra</em>) at the health centre</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="hc4">
+          <label for="hc4">Locate nearest pharmacy (<em>farmacia</em>); most medications require a prescription from your GP</label>
+        </div>
+      </div>
+      <div class="checklist-group">
+        <div class="group-label">Schools &amp; Children</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="sc1">
+          <label for="sc1">Confirm school enrollment; submit all required documents to chosen school</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="sc2">
+          <label for="sc2">Arrange school uniform and required supplies (most schools publish lists in July/August)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="sc3">
+          <label for="sc3">Sign children up for after-school activities and sports to build social connections early</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="sc4">
+          <label for="sc4">Join school parent WhatsApp groups and attend first parent meetings</label>
+        </div>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Integration &amp; Community</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c1">
+        <label for="c1">Start Spanish language classes <em>EOI Valencia (state-funded, very affordable); or private language schools</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c2">
+        <label for="c2">Attend an <em>intercambio</em> (language exchange) event &mdash; practise Spanish while helping others with English</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c3">
+        <label for="c3">Join a local sports club, cycling group, or running club</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c4">
+        <label for="c4">Visit the Mercado Central (city centre) and Mercado de Col&oacute;n &mdash; great for meeting locals and understanding local food culture</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 8 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">8</div>
+      <div>
+        <div class="phase-title">Months 3&ndash;6</div>
+        <div class="phase-subtitle">Driving licence, vehicle, ongoing admin</div>
+      </div>
+    </div>
+    <div class="checklist-note">
+      <strong>Driving licence deadline:</strong> Non-EU licence holders must exchange their licence at the DGT within <strong>6 months</strong> of establishing residency in Spain. Do not miss this deadline or you will need to re-sit the Spanish driving test.
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Driving &amp; Transport</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="dr1">
+        <label for="dr1">Book DGT (traffic authority) appointment to exchange non-EU driving licence <em>Required within 6 months of establishing residency. Book via sede.dgt.gob.es</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="dr2">
+        <label for="dr2">If importing a non-EU vehicle: book ITV (roadworthiness) inspection and complete DGT registration change</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="dr3">
+        <label for="dr3">Purchase a Tarjeta de Transporte (10-trip travel card) or monthly Abono for Valencia metro/bus network</label>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Tax &amp; Administration</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="t1">
+        <label for="t1">Confirm with your gestor&iacute;a whether you will be a Spanish tax resident this year (183+ days in Spain) <em>If yes, you must file an annual IRPF return; deadline 30 June</em></label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="t2">
+        <label for="t2">Review Modelo 720 obligation: if you have overseas assets over &euro;50,000 in any single category, you must declare them</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="t3">
+        <label for="t3">Register for IBAN-based digital notifications from Spanish tax authority (Hacienda) via their website</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 9 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">9</div>
+      <div>
+        <div class="phase-title">First Year Milestones</div>
+        <div class="phase-subtitle">Renewals, taxes &amp; long-term settlement</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="checklist-group">
+        <div class="group-label">Residency &amp; Documents</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y1">
+          <label for="y1">TIE renewal (non-EU): book appointment at least 60 days before expiry <em>Renews for 2 years after first 1-year card</em></label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y2">
+          <label for="y2">Update empadronamiento if you have moved to a new permanent address</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y3">
+          <label for="y3">Check private health insurance renewal date and terms</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y4">
+          <label for="y4">Review rental contract: confirm annual CPI rent increase has been applied correctly</label>
+        </div>
+      </div>
+      <div class="checklist-group">
+        <div class="group-label">Taxes &amp; Finance</div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y5">
+          <label for="y5">File Spanish IRPF income tax return (Modelo 100) with your gestor&iacute;a &mdash; deadline: 30 June</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y6">
+          <label for="y6">Check Modelo 720 status with your gestor&iacute;a (overseas assets declaration)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y7">
+          <label for="y7">Review whether your home-country pension or income is being taxed correctly under the double-taxation treaty</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="y8">
+          <label for="y8">If purchasing property: budget an additional 10&ndash;14% for ITP (transfer tax), notary, and registry fees on top of purchase price</label>
+        </div>
+      </div>
+    </div>
+    <div class="checklist-group">
+      <div class="group-label">Reflect &amp; Celebrate</div>
+      <div class="checklist-item">
+        <input type="checkbox" id="y9">
+        <label for="y9">Attend your neighbourhood&rsquo;s annual <em>fiestas de barrio</em> &mdash; summer street festival; the best way to feel truly part of your community</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="y10">
+        <label for="y10">Watch Las Fallas (1&ndash;19 March) &mdash; Valencia&rsquo;s extraordinary UNESCO-listed festival. Stand near the front for <em>La Crem&agrave;</em> on the 19th.</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="y11">
+        <label for="y11">Order a proper <em>paella valenciana</em> at a traditional restaurant (not the tourist versions) &mdash; Restaurante La Pepica at the beach is a classic</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="y12">
+        <label for="y12"><strong>You made it.</strong> Valencia is home. Congratulations.</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="checklist-footer">
+    <div>
+      <div class="footer-brand">moving<span>2</span>valencia</div>
+      <div style="font-size: 13px; color: var(--stone); margin-top: 6px;">Founded 2008 by Christa van der Meer</div>
+    </div>
+    <div class="footer-info">
+      info@moving2valencia.eu<br>
+      Valencia, Spain &nbsp;&bull;&nbsp; &copy; 2024 Moving2Valencia<br>
+      <em style="font-size: 12px;">All information fact-checked and updated for 2024. Subject to change &mdash; always verify with official Spanish government sources.</em>
+    </div>
+    <a href="index.html" class="footer-cta">&#x2190; Back to website</a>
+  </div>
+
+</div>
+
+</body>
+</html>

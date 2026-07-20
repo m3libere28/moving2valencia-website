@@ -1042,6 +1042,133 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ===== MODALS ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,36,32,0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 20px 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  overflow-y: auto;
+}
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: white;
+  border-radius: 24px;
+  max-width: 740px;
+  width: 100%;
+  position: relative;
+  transform: translateY(24px) scale(0.97);
+  transition: all 0.4s cubic-bezier(0.34,1.3,0.64,1);
+  margin-bottom: 40px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
+.modal-close {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(44,36,32,0.08);
+  border: none; cursor: pointer;
+  font-size: 15px; color: var(--charcoal);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; z-index: 10;
+}
+.modal-close:hover { background: var(--terra); color: white; }
+.modal-hero {
+  padding: 48px 48px 32px;
+  background: linear-gradient(135deg, var(--cream) 0%, #fff 100%);
+  border-bottom: 1px solid var(--sand);
+}
+.modal-icon { font-size: 44px; display: block; margin-bottom: 16px; }
+.modal-hero h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 500;
+  color: var(--charcoal); margin-bottom: 10px; line-height: 1.1;
+}
+.modal-hero h2 em { color: var(--terra); font-style: italic; }
+.modal-subtitle { font-size: 16px; color: var(--stone); line-height: 1.6; max-width: 560px; }
+.modal-body { padding: 36px 48px 48px; }
+.modal-facts {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px; margin-bottom: 32px;
+}
+.modal-fact {
+  background: var(--cream);
+  border-radius: 14px; padding: 20px 14px; text-align: center;
+}
+.modal-fact strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--terra); line-height: 1.15; margin-bottom: 6px;
+}
+.modal-fact span { font-size: 11px; color: var(--stone); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.4; display: block; }
+.modal-section { margin-bottom: 28px; }
+.modal-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600;
+  color: var(--charcoal); margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--sand);
+}
+.modal-section p { font-size: 15px; line-height: 1.75; color: var(--stone); margin-bottom: 12px; }
+.modal-section ul { list-style: none; }
+.modal-section ul li {
+  font-size: 14.5px; color: var(--stone);
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(232,221,211,0.6);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.55;
+}
+.modal-section ul li:last-child { border-bottom: none; }
+.modal-section ul li::before { content: '\2192'; color: var(--terra); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.modal-section ul li strong { color: var(--charcoal); }
+.modal-note {
+  background: rgba(196,92,62,0.06);
+  border-left: 3px solid var(--terra);
+  padding: 16px 20px;
+  border-radius: 0 10px 10px 0;
+  margin: 0 0 24px;
+}
+.modal-note p { font-size: 14px; color: var(--charcoal); margin: 0; line-height: 1.65; }
+.modal-note strong { color: var(--terra); }
+.modal-cta { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--sand); text-align: center; }
+.modal-cta > p { font-size: 15px; color: var(--stone); margin-bottom: 16px; }
+.modal-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--terra); color: white;
+  padding: 14px 32px; border-radius: 40px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.3s; min-height: 50px;
+}
+.modal-cta-btn:hover {
+  background: var(--terra-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(196,92,62,0.3);
+}
+@media (max-width: 768px) {
+  .modal-overlay { padding: 20px 12px 40px; }
+  .modal-hero { padding: 36px 22px 24px; }
+  .modal-hero h2 { font-size: 30px; }
+  .modal-body { padding: 24px 22px 36px; }
+  .modal-facts { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .modal-facts { grid-template-columns: 1fr; }
+}
 </style>
 
 </head>
@@ -1083,7 +1210,7 @@ body {
       <p class="hero-subtitle">Not a bureaucratic maze. For 16 years, Christa has guided families through every step — from NIE paperwork to finding the perfect neighborhood — so you can start living from day one.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">Book a Free 15-Min Call →</a>
-        <a href="#" class="btn-secondary">📄 Download Free Checklist</a>
+        <a href="checklist.html" target="_blank" class="btn-secondary">📄 Download Free Checklist</a>
       </div>
       <div class="hero-trust">
         <div class="hero-trust-avatars">
@@ -1131,7 +1258,7 @@ body {
         <div class="service-icon">📋</div>
         <h3>Pre-Move Planning</h3>
         <p>Personalized timeline, document checklist, and a dedicated relocation roadmap tailored to your family's needs and timeline.</p>
-        <a href="#" class="learn-more">Learn more →</a>
+        <a href="#" class="learn-more" onclick="openModal('modal-preplanning'); return false;">Learn more →</a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -1142,7 +1269,7 @@ body {
         <div class="service-icon">🛂</div>
         <h3>Legal & Formalities</h3>
         <p>NIE applications, residency permits, bank account setup, and health insurance — we navigate Spanish bureaucracy so you don't have to.</p>
-        <a href="#" class="learn-more">Learn more →</a>
+        <a href="#" class="learn-more" onclick="openModal('modal-legal'); return false;">Learn more →</a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -1153,7 +1280,7 @@ body {
         <div class="service-icon">🏠</div>
         <h3>Home Finding</h3>
         <p>Neighborhood tours, property viewings, lease negotiation, and utility setup. We find the home that fits your lifestyle.</p>
-        <a href="#" class="learn-more">Learn more →</a>
+        <a href="#" class="learn-more" onclick="openModal('modal-home'); return false;">Learn more →</a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -1164,7 +1291,7 @@ body {
         <div class="service-icon">🎓</div>
         <h3>School Search</h3>
         <p>From international schools to local gems, we match your children with the right educational environment and handle enrollment.</p>
-        <a href="#" class="learn-more">Learn more →</a>
+        <a href="#" class="learn-more" onclick="openModal('modal-school'); return false;">Learn more →</a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -1175,7 +1302,7 @@ body {
         <div class="service-icon">🤝</div>
         <h3>Intercultural Coaching</h3>
         <p>Understand Spanish customs, build your social network, and integrate smoothly into Valencia's vibrant community.</p>
-        <a href="#" class="learn-more">Learn more →</a>
+        <a href="#" class="learn-more" onclick="openModal('modal-culture'); return false;">Learn more →</a>
       </div>
     </div>
     <div class="service-card reveal">
@@ -1186,7 +1313,7 @@ body {
         <div class="service-icon">🌐</div>
         <h3>Ongoing Support</h3>
         <p>Your Valencia ally for the first year and beyond. Questions, emergencies, or just need a restaurant recommendation? We're here.</p>
-        <a href="#" class="learn-more">Learn more →</a>
+        <a href="#" class="learn-more" onclick="openModal('modal-support'); return false;">Learn more →</a>
       </div>
     </div>
   </div>
@@ -1343,7 +1470,7 @@ body {
     <p>Book a free 15-minute discovery call with Christa. No pressure, no sales pitch — just honest answers about your move and how we can help.</p>
     <div class="cta-buttons">
       <a href="#" class="cta-btn-primary">📅 Book Your Free Call</a>
-      <a href="#" class="cta-btn-secondary">📄 Download Free Checklist</a>
+      <a href="checklist.html" target="_blank" class="cta-btn-secondary">📄 Download Free Checklist</a>
     </div>
   </div>
 </section>
@@ -1439,7 +1566,443 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+// ===== MODAL SYSTEM =====
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.active').forEach(function(m) {
+      m.classList.remove('active');
+    });
+    document.body.style.overflow = '';
+  }
+});
 </script>
+
+<!-- ===== SERVICE MODALS ===== -->
+
+<!-- MODAL 1: PRE-MOVE PLANNING -->
+<div class="modal-overlay" id="modal-preplanning">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-preplanning')" aria-label="Close">&#x2715;</button>
+    <div class="modal-hero">
+      <span class="modal-icon">&#x1F4CB;</span>
+      <h2>Pre-Move <em>Planning</em></h2>
+      <p class="modal-subtitle">A successful relocation begins 6&ndash;12 months before you fly. Here is exactly what to prepare &mdash; tailored for both EU and non-EU citizens moving to Valencia.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-facts">
+        <div class="modal-fact"><strong>6&ndash;12 mo</strong><span>Lead time for non-EU citizens</span></div>
+        <div class="modal-fact"><strong>3&ndash;6 mo</strong><span>Lead time for EU/EEA citizens</span></div>
+        <div class="modal-fact"><strong>&euro;1,800&ndash;2,800</strong><span>Est. monthly budget (family of 4)</span></div>
+      </div>
+      <div class="modal-section">
+        <h3>Documents to Prepare</h3>
+        <p>Many documents require official Spanish translation (<em>traducci&oacute;n jurada</em>) and an Apostille stamp &mdash; allow 4&ndash;8 weeks for both:</p>
+        <ul>
+          <li>Valid passport &mdash; minimum 1 year remaining validity recommended</li>
+          <li>Birth certificates for all family members (apostilled)</li>
+          <li>Marriage certificate, if applicable (apostilled)</li>
+          <li>Criminal background check from country of residence (apostilled, issued within 3&ndash;6 months of application)</li>
+          <li>Proof of sufficient financial means &mdash; bank statements, pension letters, investment income</li>
+          <li>Comprehensive private health insurance &mdash; mandatory for all visa applications</li>
+          <li>Biometric passport-size photographs</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Visa Options for Non-EU Citizens</h3>
+        <ul>
+          <li><strong>Non-Lucrative Visa (NLV):</strong> Most popular for retirees and those with passive income. Financial requirement: approx. &euro;28,800+/year per applicant (400% IPREM, 2024 &mdash; updated annually). Applied for at your Spanish Consulate before travel.</li>
+          <li><strong>Digital Nomad Visa (DNV):</strong> Introduced January 2023 (Ley 28/2022). For remote workers with non-Spanish employers. Income requirement: 200% of Spain&rsquo;s minimum wage (approx. &euro;2,646/month gross, 2024).</li>
+          <li><strong>Golden Visa:</strong> For real estate investment of &euro;500,000+ unencumbered. Grants immediate full-family residency rights.</li>
+          <li><strong>EU/EEA citizens:</strong> No visa required. Register in Spain once you arrive using the EU Citizen Certificate process.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Shipping &amp; Logistics</h3>
+        <ul>
+          <li><strong>Sea freight from North America:</strong> 4&ndash;6 weeks transit; book 2&ndash;3 months in advance</li>
+          <li><strong>Sea freight from Northern Europe:</strong> 1&ndash;2 weeks; road freight also a common option</li>
+          <li><strong>EU citizens importing personal effects:</strong> Duty-free if items are your own, over 6 months old, and you are establishing habitual residence in Spain</li>
+          <li><strong>Vehicle import:</strong> EU-registered vehicles can be driven in Spain; non-EU vehicles require ITV inspection and DGT re-registration</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Cost of Living Snapshot &mdash; Valencia (2024)</h3>
+        <ul>
+          <li>Typically 30&ndash;40% more affordable than London, Amsterdam, or Zurich</li>
+          <li>Monthly public transport pass (Abono): approx. &euro;24</li>
+          <li>Family restaurant set lunch (<em>men&uacute; del d&iacute;a</em>) for 2: &euro;20&ndash;35</li>
+          <li>Monthly groceries for a family of 4: &euro;400&ndash;600</li>
+          <li>Private health insurance: &euro;80&ndash;200/month per adult</li>
+          <li>Utilities (electricity, water, internet) for 3-bed apartment: &euro;120&ndash;220/month</li>
+        </ul>
+      </div>
+      <div class="modal-note">
+        <p><strong>Christa&rsquo;s tip:</strong> The most common mistake is underestimating Spanish bureaucracy timelines. Always build in an extra 4&ndash;8 weeks buffer for appointments. We begin booking <em>citas previas</em> the moment you engage us.</p>
+      </div>
+      <div class="modal-cta">
+        <p>Ready to build your personalised relocation timeline?</p>
+        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-preplanning')">&#x1F4C5; Book Your Free 15-Min Call</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: LEGAL & FORMALITIES -->
+<div class="modal-overlay" id="modal-legal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-legal')" aria-label="Close">&#x2715;</button>
+    <div class="modal-hero">
+      <span class="modal-icon">&#x1F6C2;</span>
+      <h2>Legal &amp; <em>Formalities</em></h2>
+      <p class="modal-subtitle">Spain&rsquo;s bureaucracy has a reputation &mdash; but it is completely navigable with the right guide. Here is what every new resident needs, and in what order to get it.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-facts">
+        <div class="modal-fact"><strong>4&ndash;12 wks</strong><span>Typical NIE appointment wait time</span></div>
+        <div class="modal-fact"><strong>&euro;10.60</strong><span>NIE application fee (Tasa 790/012)</span></div>
+        <div class="modal-fact"><strong>Day 1</strong><span>Best time to start empadronamiento</span></div>
+      </div>
+      <div class="modal-section">
+        <h3>NIE, TIE &amp; EU Certificate &mdash; What Is What?</h3>
+        <ul>
+          <li><strong>NIE (N&uacute;mero de Identidad de Extranjero):</strong> A tax identification number assigned to all foreigners in Spain. Not a residency permit. Required for opening bank accounts, signing leases, buying property, and virtually any official transaction. Both EU and non-EU citizens need one.</li>
+          <li><strong>TIE (Tarjeta de Identidad de Extranjero):</strong> The physical residency card for non-EU citizens. Issued after your visa is approved and you arrive in Spain. Initially valid 1 year; renewed for 2 years, then 5 years (long-term residency).</li>
+          <li><strong>EU Citizen Certificate (Certificado de Registro de Ciudadano de la UE):</strong> EU/EEA nationals register at the Oficina de Extranjer&iacute;a or a national police station and receive a green A4 certificate confirming legal residency. This also contains your NIE number.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Empadronamiento &mdash; Municipal Registration</h3>
+        <p>Registration at your local <em>Ayuntamiento</em> is the cornerstone of life in Spain. Without it you cannot access public healthcare, enrol children in local schools, or apply for most administrative services.</p>
+        <ul>
+          <li>Register at your local Ayuntamiento or Junta Municipal (district office)</li>
+          <li>In Valencia city: book via Valencia.es (the City Council website)</li>
+          <li>Documents required: valid passport + original signed rental contract or property deed</li>
+          <li>Document received: <em>Volante de Empadronamiento</em> (registration certificate)</li>
+          <li>Usually processed same day or within 5 working days</li>
+          <li>Update your empadronamiento each time you move to a new address</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Banking in Spain</h3>
+        <p>A Spanish bank account requires your NIE. Use a fintech card (Revolut, N26, Wise) for the first weeks while your NIE is processed.</p>
+        <ul>
+          <li><strong>BBVA:</strong> Most expat-friendly; strong English-language online banking; widespread branches</li>
+          <li><strong>CaixaBank:</strong> Largest branch network in Spain; good mobile app</li>
+          <li><strong>Sabadell:</strong> Strong presence in the Valencian Community; known for good customer service</li>
+          <li>Standard fees: &euro;0&ndash;20/month (often free with salary direct deposit or minimum balance)</li>
+          <li>Documents needed: passport, NIE, empadronamiento certificate, proof of income</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Health Insurance</h3>
+        <ul>
+          <li><strong>Public system (Sistema Nacional de Salud):</strong> Accessible once empadronado and contributing to Social Security. Card in Valencia: <em>Tarjeta SIP</em>.</li>
+          <li><strong>EU/UK pensioners:</strong> Use an S1 form from your home country to access Spanish public healthcare directly.</li>
+          <li><strong>Private insurance (required for visa applicants):</strong> Major providers &mdash; Adeslas, Sanitas, Asisa, Cigna International. Approx. &euro;60&ndash;180/month per adult.</li>
+          <li>Valencia public hospitals: Hospital La Fe, Hospital Cl&iacute;nico Universitari, Hospital Dr. Peset</li>
+        </ul>
+      </div>
+      <div class="modal-note">
+        <p><strong>Key reality:</strong> All Spanish government appointments (<em>cita previa</em>) are booked online via the Sede Electr&oacute;nica or Extranjer&iacute;a websites. Slots disappear within minutes of release. We monitor and book these the moment you engage us.</p>
+      </div>
+      <div class="modal-cta">
+        <p>Let us handle every appointment, form, and queue &mdash; on your behalf.</p>
+        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-legal')">&#x1F4C5; Book Your Free 15-Min Call</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: HOME FINDING -->
+<div class="modal-overlay" id="modal-home">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-home')" aria-label="Close">&#x2715;</button>
+    <div class="modal-hero">
+      <span class="modal-icon">&#x1F3E0;</span>
+      <h2>Home <em>Finding</em></h2>
+      <p class="modal-subtitle">Valencia&rsquo;s rental market moves fast. We know every neighbourhood, what landlords look for, and exactly how to secure the right home before you even arrive.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-facts">
+        <div class="modal-fact"><strong>&euro;800&ndash;1,100</strong><span>1-bed city centre / month (2024)</span></div>
+        <div class="modal-fact"><strong>5&ndash;7 yrs</strong><span>Minimum rental lease (LAU law)</span></div>
+        <div class="modal-fact"><strong>1 month</strong><span>Legal security deposit limit</span></div>
+      </div>
+      <div class="modal-section">
+        <h3>Valencia Neighbourhood Guide</h3>
+        <ul>
+          <li><strong>Ruzafa / Russafa:</strong> Valencia&rsquo;s trendiest neighbourhood. International restaurants, independent caf&eacute;s, lively weekend life. Most popular with expats and young professionals. 1-bed: &euro;850&ndash;1,200/month.</li>
+          <li><strong>El Carmen (Ciutat Vella):</strong> The medieval old town. Narrow streets, Gothic architecture, tapas bars, galleries. Vibrant but noisy on weekends. 1-bed: &euro;750&ndash;1,100/month.</li>
+          <li><strong>L&rsquo;Eixample / Gran V&iacute;a:</strong> Wide leafy boulevards, elegant architecture, quieter feel. Excellent transport links. 1-bed: &euro;900&ndash;1,300/month.</li>
+          <li><strong>Benimaclet:</strong> Bohemian university neighbourhood. Strong community spirit, local markets, international atmosphere. More affordable &mdash; 1-bed: &euro;650&ndash;900/month.</li>
+          <li><strong>El Cabanyal:</strong> Historic fishing quarter with beach access. Rapidly gentrifying, great value relative to location. 1-bed: &euro;700&ndash;1,050/month.</li>
+          <li><strong>Campanar, Patraix, Malilla:</strong> Quieter residential family areas. More space, good schools, calmer environment. 2-bed: &euro;850&ndash;1,200/month.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>What Landlords Require</h3>
+        <ul>
+          <li>Valid NIE number &mdash; no NIE means no rental contract can be signed</li>
+          <li>3&ndash;6 months of bank statements showing sufficient income</li>
+          <li>Work contract, pension certificate, or proof of recurring income</li>
+          <li>Previous landlord references &mdash; helpful, not always mandatory</li>
+          <li>Security deposit: legally capped at 1 month rent (Ley 29/1994); landlords may request 1&ndash;2 additional months as a guarantee</li>
+          <li>For self-employed or foreign income: a personal guarantor (<em>aval</em>) may be requested</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Spanish Rental Law &mdash; Key Facts (LAU)</h3>
+        <p>Spain&rsquo;s <em>Ley de Arrendamientos Urbanos</em> provides strong tenant protections:</p>
+        <ul>
+          <li>Minimum rental period: <strong>5 years</strong> if landlord is a private individual; <strong>7 years</strong> if landlord is a company (RDL 7/2019)</li>
+          <li>Annual rent increases capped at the official CPI index during the contract term</li>
+          <li>Landlord cannot terminate during the minimum period without serious legal cause</li>
+          <li>Tenant may exit after 6 months with 30 days&rsquo; written notice (early exit penalty may apply)</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Rental Price Ranges &mdash; Valencia (2024)</h3>
+        <ul>
+          <li>Studio apartment: &euro;550&ndash;800/month</li>
+          <li>1-bedroom apartment: &euro;750&ndash;1,100/month</li>
+          <li>2-bedroom apartment: &euro;950&ndash;1,500/month</li>
+          <li>3-bedroom apartment: &euro;1,200&ndash;2,000/month</li>
+          <li>Villa / townhouse with garden (peri-urban): &euro;1,500&ndash;3,500/month</li>
+        </ul>
+      </div>
+      <div class="modal-note">
+        <p><strong>Market reality:</strong> Popular flats in Ruzafa and El Cabanyal receive 5&ndash;15 enquiries per day. Having all documents ready to commit immediately is the difference between getting the home and losing it. We prepare your full dossier in advance so you can say yes on the spot.</p>
+      </div>
+      <div class="modal-cta">
+        <p>Tell us your ideal neighbourhood, budget, and lifestyle &mdash; we&rsquo;ll find the match.</p>
+        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-home')">&#x1F4C5; Book Your Free 15-Min Call</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: SCHOOL SEARCH -->
+<div class="modal-overlay" id="modal-school">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-school')" aria-label="Close">&#x2715;</button>
+    <div class="modal-hero">
+      <span class="modal-icon">&#x1F393;</span>
+      <h2>School <em>Search</em></h2>
+      <p class="modal-subtitle">Valencia has an outstanding range of schools from free public options to world-class international programmes. We find the right fit &mdash; not just the most expensive name on a list.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-facts">
+        <div class="modal-fact"><strong>3 types</strong><span>Public, Concertado &amp; International</span></div>
+        <div class="modal-fact"><strong>Feb&ndash;Apr</strong><span>Enrollment window for September</span></div>
+        <div class="modal-fact"><strong>&euro;0&ndash;18k</strong><span>Annual fees per child (full range)</span></div>
+      </div>
+      <div class="modal-section">
+        <h3>The Three School Systems</h3>
+        <ul>
+          <li><strong>Colegios P&uacute;blicos (State Schools) &mdash; Free:</strong> Funded by the Spanish government. Instruction is in Spanish and Valencian. High academic standards. Children typically achieve fluency within 6&ndash;12 months through immersion. Priority places allocated by residential proximity (<em>zonas de escolarizaci&oacute;n</em>).</li>
+          <li><strong>Colegios Concertados (Semi-Private) &mdash; Low/No Fees:</strong> Partly state-funded. Many offer bilingual or trilingual programmes (Spanish/Valencian/English). Often Catholic in origin but academically strong and open to all. Fees typically &euro;0&ndash;200/month.</li>
+          <li><strong>Colegios Privados / Internacionales &mdash; Fee-Paying:</strong> Fully private. British (Cambridge/A-Levels), American (AP), IB, German, or French curricula. English-medium instruction. Fees: approx. &euro;5,000&ndash;18,000/year. Ideal if your family may relocate again or children&rsquo;s Spanish is limited.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>International Schools in Valencia</h3>
+        <ul>
+          <li><strong>The British School of Valencia:</strong> Cambridge Curriculum and A-Levels. Ages 3&ndash;18. Located in Urbanizaci&oacute;n La Ca&ntilde;ada (Paterna). Fees from approx. &euro;7,000&ndash;14,000/year.</li>
+          <li><strong>American School of Valencia (ASV):</strong> US curriculum with Advanced Placement (AP) courses. Ages 3&ndash;18. Located in Godella. Fees from approx. &euro;8,000&ndash;16,000/year.</li>
+          <li><strong>Colegio Alem&aacute;n de Valencia:</strong> German national curriculum. Ages 3&ndash;18. Recognised by the German government. For German-speaking families.</li>
+          <li><strong>Colegio Internacional Menesiano:</strong> IB Primary Years + Spanish curriculum. Ages 3&ndash;18. Bilingual Spanish/English. Competitively priced.</li>
+          <li><strong>Colegio Los Olmos:</strong> Well-regarded private Spanish school with strong trilingual programme (Spanish, English, French) and rich extracurricular activities.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Enrollment Timeline</h3>
+        <ul>
+          <li><strong>October&ndash;December:</strong> Research phase &mdash; visit schools, attend open days, make shortlists</li>
+          <li><strong>February&ndash;April:</strong> Official state school enrollment period (Conselleria d&rsquo;Educaci&oacute; process)</li>
+          <li><strong>January&ndash;April:</strong> International school application window (many accept year-round)</li>
+          <li><strong>June&ndash;July:</strong> State school placement letters issued</li>
+          <li><strong>September (2nd week typically):</strong> Academic year begins</li>
+          <li>Mid-year entry: readily accepted at international schools; state schools require Conselleria d&rsquo;Educaci&oacute; approval</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Language &amp; Curriculum Notes</h3>
+        <ul>
+          <li>Valencia is officially bilingual: Spanish (Castellano) and Valencian (Valenci&agrave;) are co-official since 1982</li>
+          <li>Public schools teach in both; some programmes are majority-Valencian, others majority-Spanish</li>
+          <li>Children aged 5&ndash;12 typically achieve conversational Spanish within 6&ndash;12 months of full immersion</li>
+          <li>Spanish schools follow the LOMLOE national curriculum (2022 education law)</li>
+          <li>International schools follow their own national or IB curricula, recognised globally</li>
+        </ul>
+      </div>
+      <div class="modal-note">
+        <p><strong>Christa&rsquo;s approach:</strong> We have personally visited every major international school in Valencia. Before recommending a school, we ask about your child&rsquo;s learning style, social preferences, language level, and your family&rsquo;s long-term plans. The right school is the one that fits your child.</p>
+      </div>
+      <div class="modal-cta">
+        <p>Let&rsquo;s find the right school before you even arrive in Valencia.</p>
+        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-school')">&#x1F4C5; Book Your Free 15-Min Call</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: INTERCULTURAL COACHING -->
+<div class="modal-overlay" id="modal-culture">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-culture')" aria-label="Close">&#x2715;</button>
+    <div class="modal-hero">
+      <span class="modal-icon">&#x1F91D;</span>
+      <h2>Intercultural <em>Coaching</em></h2>
+      <p class="modal-subtitle">The paperwork is one thing. Feeling genuinely at home is another. Understanding Valencia&rsquo;s rhythm, language, customs, and community is what makes you thrive &mdash; not just arrive.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-facts">
+        <div class="modal-fact"><strong>2</strong><span>Co-official languages (Spanish + Valencian)</span></div>
+        <div class="modal-fact"><strong>9&ndash;11pm</strong><span>When Valencianos typically eat dinner</span></div>
+        <div class="modal-fact"><strong>UNESCO</strong><span>Las Fallas heritage status since 2016</span></div>
+      </div>
+      <div class="modal-section">
+        <h3>The Language Situation</h3>
+        <ul>
+          <li>Spanish (Castellano) is understood and spoken by everyone in Valencia</li>
+          <li>Valencian (Valenci&agrave;) is a Romance language closely related to Catalan; co-official in the Comunitat Valenciana since 1982</li>
+          <li>Government communications, school materials, and street signage often appear in Valencian</li>
+          <li>Speaking even basic Valencian phrases is warmly received and opens doors socially</li>
+          <li>Spanish language schools in Valencia: EOI Valencia (state-funded, very affordable), CCOO, Berlitz, private tutors</li>
+          <li>Most expats achieve conversational Spanish within 6&ndash;12 months with regular practice</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Daily Life &amp; Rhythms</h3>
+        <ul>
+          <li><strong>Breakfast:</strong> Light &mdash; coffee and a pastry at the bar, typically 7:30&ndash;9am</li>
+          <li><strong>Lunch (La Comida):</strong> The main meal, 2&ndash;4pm. Most restaurants offer a <em>men&uacute; del d&iacute;a</em>: starter + main + dessert + drink for &euro;10&ndash;16</li>
+          <li><strong>Dinner (La Cena):</strong> Typically 9&ndash;11pm. Earlier is considered unusual by local standards</li>
+          <li><strong>Siesta:</strong> Smaller independent shops may close 2&ndash;5pm; supermarkets and chains generally do not</li>
+          <li><strong>Sundays:</strong> Most independent shops closed; family lunch culture very strong; large supermarkets open until 3pm</li>
+          <li><strong>Greetings:</strong> Two cheek kisses between women and mixed groups; handshake between men in business settings</li>
+          <li><strong>Tipping:</strong> Not obligatory; rounding up or leaving &euro;1&ndash;2 is appreciated in restaurants</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Valencia&rsquo;s Cultural Calendar</h3>
+        <ul>
+          <li><strong>Las Fallas (1&ndash;19 March):</strong> Valencia&rsquo;s defining festival. Enormous satirical sculptures displayed citywide, burned on the final night (<em>La Crem&agrave;</em>). Daily <em>masclet&agrave;</em> (daytime pyrotechnics) at 2pm from 1&ndash;19 March. UNESCO Intangible Cultural Heritage since 2016.</li>
+          <li><strong>Semana Santa (March/April):</strong> Holy Week. Solemn and spectacular processions throughout the city.</li>
+          <li><strong>La Nit de Sant Joan (23 June):</strong> Midsummer night celebrated on the beach with bonfires and fireworks.</li>
+          <li><strong>La Tomatina (Last Wednesday of August, Bu&ntilde;ol):</strong> The world-famous tomato battle &mdash; approx. 150,000 kg of tomatoes. Located 39 km from Valencia. Tickets required and sell out months ahead.</li>
+          <li><strong>Fiestas de Barrio (June&ndash;September):</strong> Each neighbourhood holds its own summer festival &mdash; the single best way to integrate with local community.</li>
+          <li><strong>D&iacute;a de la Comunitat Valenciana (9 October):</strong> Valencian national day. Grand parade, floral offerings at the Cathedral, concerts citywide.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Building Your Community</h3>
+        <ul>
+          <li>Valencia has one of Spain&rsquo;s largest expat communities &mdash; particularly British, Dutch, German, and French nationals</li>
+          <li>Key expat networks: InterNations Valencia, Valencia Expats (Facebook), numerous Meetup groups</li>
+          <li>P&aacute;del clubs, cycling groups, and running clubs are among the best ways to meet both locals and internationals</li>
+          <li><em>Intercambio</em> (language exchange) events: practise Spanish while helping others with English &mdash; widely available in caf&eacute;s across the city</li>
+          <li>The Turia Gardens (9km linear park through the city) is Valencia&rsquo;s greatest social meeting place</li>
+        </ul>
+      </div>
+      <div class="modal-note">
+        <p><strong>From experience:</strong> When I arrived in Valencia in 2004, I initially stayed close to the expat bubble &mdash; comfortable, but limiting. The families who truly thrive are those who lean into Valencian life: the late dinners, the fiestas, the neighbourhood rhythms. Our coaching gives you the cultural toolkit and confidence to do exactly that.</p>
+      </div>
+      <div class="modal-cta">
+        <p>Start feeling at home before you even land in Valencia.</p>
+        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-culture')">&#x1F4C5; Book Your Free 15-Min Call</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 6: ONGOING SUPPORT -->
+<div class="modal-overlay" id="modal-support">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-support')" aria-label="Close">&#x2715;</button>
+    <div class="modal-hero">
+      <span class="modal-icon">&#x1F310;</span>
+      <h2>Ongoing <em>Support</em></h2>
+      <p class="modal-subtitle">The first year in a new country is full of surprises &mdash; tax deadlines, licence exchanges, card renewals. We stay beside you for every milestone so nothing falls through the cracks.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-facts">
+        <div class="modal-fact"><strong>183 days</strong><span>When you become a Spanish tax resident</span></div>
+        <div class="modal-fact"><strong>6 months</strong><span>Window to exchange a non-EU driving licence</span></div>
+        <div class="modal-fact"><strong>30 June</strong><span>Annual Spanish income tax deadline</span></div>
+      </div>
+      <div class="modal-section">
+        <h3>What We Help With in Year One</h3>
+        <ul>
+          <li>TIE (residency card) renewal reminders and appointment booking</li>
+          <li>Empadronamiento updates when you move to a new address</li>
+          <li>Introduction to a trusted <em>gestor&iacute;a</em> (Spanish accountant) for tax and administrative matters</li>
+          <li>Driving licence exchange at the DGT &mdash; non-EU licences must be exchanged within 6 months of establishing residency</li>
+          <li>Vehicle ITV (technical inspection) and DGT re-registration assistance</li>
+          <li>School year transitions: uniform suppliers, after-school activity registration, parent group introductions</li>
+          <li>Healthcare: GP registration at local Centro de Salud, specialist referrals, pharmacy guidance</li>
+          <li>Emergency contacts: trusted plumbers, electricians, locksmiths, emergency interpreters</li>
+          <li>Mail assistance: translating official letters from Hacienda, Seguridad Social, or Ayuntamiento</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Tax Residency &mdash; The Essentials</h3>
+        <p>You become a Spanish tax resident if you spend more than 183 days per year in Spain &mdash; a fact many new arrivals overlook:</p>
+        <ul>
+          <li>As a tax resident you must file a Spanish <em>Declaraci&oacute;n de la Renta</em> (IRPF, Modelo 100) annually &mdash; deadline: 30 June</li>
+          <li>Spanish tax residents are taxed on their worldwide income (subject to applicable double-taxation treaties)</li>
+          <li>Spain has agreements with 100+ countries including the USA, UK, Germany, Netherlands, France, Belgium, and Australia</li>
+          <li><strong>Modelo 720:</strong> Mandatory declaration of overseas assets exceeding &euro;50,000 per category. Filed once, updated only when values change by &euro;20,000+.</li>
+          <li>Recommended: engage a local <em>gestor&iacute;a</em> &mdash; annual fee for an individual tax return typically &euro;150&ndash;400</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Year One Admin Calendar</h3>
+        <ul>
+          <li><strong>Month 1:</strong> Empadronamiento &rarr; NIE/TIE &rarr; bank account &rarr; health insurance setup</li>
+          <li><strong>Month 1&ndash;2:</strong> <em>Tarjeta SIP</em> (health card) application at local Centro de Salud</li>
+          <li><strong>Month 1&ndash;3:</strong> School enrollment confirmed; rental utilities transferred to your name</li>
+          <li><strong>Month 3&ndash;6:</strong> Driving licence exchange (DGT); Social Security registration; gestor&iacute;a introduction</li>
+          <li><strong>Month 6&ndash;12:</strong> TIE renewal if approaching 1-year expiry; Modelo 720 review with gestor&iacute;a</li>
+          <li><strong>Month 12+:</strong> First Spanish IRPF income tax return (Modelo 100) filed by 30 June of the following year</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h3>Healthcare in Year One</h3>
+        <ul>
+          <li>Apply for your <em>Tarjeta SIP</em> at your nearest Centro de Salud once empadronado and with Social Security or valid coverage established</li>
+          <li>Register with a GP (<em>m&eacute;dico de cabecera</em>) at your nearest health centre</li>
+          <li>Emergency care is always available at any public hospital &mdash; free of charge regardless of registration status</li>
+          <li>Prescription system: most medications issued by your GP and heavily subsidised through the public system</li>
+          <li>Private therapy widely available: &euro;60&ndash;120/session for English-speaking therapists</li>
+        </ul>
+      </div>
+      <div class="modal-note">
+        <p><strong>We are always here:</strong> Our clients have our direct WhatsApp and email. Whether it is a confusing certified letter from Hacienda or an urgent plumbing issue on a Sunday morning &mdash; we respond within the same business day, every time.</p>
+      </div>
+      <div class="modal-cta">
+        <p>Don&rsquo;t navigate the first year alone. We&rsquo;ve done it &mdash; so you don&rsquo;t have to.</p>
+        <a href="#contact" class="modal-cta-btn" onclick="closeModal('modal-support')">&#x1F4C5; Book Your Free 15-Min Call</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
