@@ -908,6 +908,37 @@ body {
   color: rgba(255,255,255,0.4);
 }
 
+/* ===== MARQUEE ===== */
+.marquee-section{overflow:hidden;background:var(--terra);}
+.marquee-track{display:flex;align-items:center;padding:14px 0;animation:mscroll 55s linear infinite;width:max-content;}
+.marquee-section:hover .marquee-track{animation-play-state:paused;}
+@keyframes mscroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.mq-item{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:0 36px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.9);}
+.mq-item .mq-pub{color:white;font-weight:800;}
+.mq-dot{color:rgba(255,255,255,0.4);font-size:16px;flex-shrink:0;}
+
+/* ===== STATS ===== */
+.stats-section{padding:100px 60px;background:var(--charcoal);position:relative;overflow:hidden;}
+.stats-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(196,92,62,0.07) 0%,transparent 60%);pointer-events:none;}
+.stats-inner{max-width:1300px;margin:0 auto;position:relative;}
+.stats-top{text-align:center;margin-bottom:64px;}
+.stats-top .section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:14px;}
+.stats-top h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,56px);font-weight:400;color:white;line-height:1.1;margin-bottom:16px;}
+.stats-top h2 em{font-style:italic;color:var(--terra-light);}
+.stats-top p{font-size:16px;color:rgba(255,255,255,0.45);max-width:540px;margin:0 auto;line-height:1.7;}
+.stats-grid-v1{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:20px;overflow:hidden;margin-bottom:24px;}
+.stat-block{background:var(--charcoal);padding:48px 20px 40px;text-align:center;transition:background 0.3s;}
+.stat-block:hover{background:rgba(196,92,62,0.06);}
+.stat-num-v1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5vw,68px);font-weight:700;color:white;line-height:1;margin-bottom:10px;display:flex;align-items:baseline;justify-content:center;gap:1px;}
+.stat-pfx{font-size:0.55em;color:var(--terra);font-weight:700;}
+.stat-sfx{font-size:0.45em;color:var(--terra);font-weight:700;margin-left:1px;}
+.stat-ctr{}
+.stat-lbl{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:6px;line-height:1.35;}
+.stat-src{font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.5px;}
+.stats-footnote{text-align:center;font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.5px;}
+@media(max-width:900px){.stats-grid-v1{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:580px){.stats-grid-v1{grid-template-columns:repeat(2,1fr);}.stats-section{padding:70px 24px;}}
+
 /* ===== MOBILE MENU OVERLAY ===== */
 .mobile-overlay {
   position: fixed;
@@ -1289,6 +1320,26 @@ body {
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee-section" aria-label="Valencia rankings and awards">
+  <div class="marquee-track">
+    <div class="mq-item"><span class="mq-pub">Forbes</span> — #1 City for Expats in the World</div><span class="mq-dot">✦</span>
+    <div class="mq-item"><span class="mq-pub">InterNations</span> — #1 Expat City Ranking 2024</div><span class="mq-dot">✦</span>
+    <div class="mq-item"><span class="mq-pub">Numbeo</span> — Top 13 Globally · Quality of Life</div><span class="mq-dot">✦</span>
+    <div class="mq-item">☀️ 300+ Sunny Days Per Year</div><span class="mq-dot">✦</span>
+    <div class="mq-item">🌊 20 Minutes to the Mediterranean Sea</div><span class="mq-dot">✦</span>
+    <div class="mq-item">🏆 Europe's Most Liveable City</div><span class="mq-dot">✦</span>
+    <div class="mq-item">🍊 Birthplace of Paella &amp; Horchata</div><span class="mq-dot">✦</span>
+    <div class="mq-item"><span class="mq-pub">Forbes</span> — #1 City for Expats in the World</div><span class="mq-dot">✦</span>
+    <div class="mq-item"><span class="mq-pub">InterNations</span> — #1 Expat City Ranking 2024</div><span class="mq-dot">✦</span>
+    <div class="mq-item"><span class="mq-pub">Numbeo</span> — Top 13 Globally · Quality of Life</div><span class="mq-dot">✦</span>
+    <div class="mq-item">☀️ 300+ Sunny Days Per Year</div><span class="mq-dot">✦</span>
+    <div class="mq-item">🌊 20 Minutes to the Mediterranean Sea</div><span class="mq-dot">✦</span>
+    <div class="mq-item">🏆 Europe's Most Liveable City</div><span class="mq-dot">✦</span>
+    <div class="mq-item">🍊 Birthplace of Paella &amp; Horchata</div><span class="mq-dot">✦</span>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section class="section services-section" id="services">
   <div class="section-header reveal">
@@ -1402,6 +1453,45 @@ body {
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stats-top">
+      <div class="section-eyebrow">By the Numbers</div>
+      <h2>Why the world is moving to <em>Valencia</em></h2>
+      <p>The data confirms what residents have always known — Valencia is one of the finest cities on earth to build a life, and the numbers prove it.</p>
+    </div>
+    <div class="stats-grid-v1">
+      <div class="stat-block">
+        <div class="stat-num-v1"><span class="stat-pfx">#</span><span class="stat-ctr" data-count="1">1</span></div>
+        <div class="stat-lbl">City for Expats in the World</div>
+        <div class="stat-src">Forbes &amp; InterNations 2024</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num-v1"><span class="stat-ctr" data-count="13">13</span><span class="stat-sfx">th</span></div>
+        <div class="stat-lbl">Global Quality of Life Index</div>
+        <div class="stat-src">Numbeo 2024</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num-v1"><span class="stat-ctr" data-count="300">300</span><span class="stat-sfx">+</span></div>
+        <div class="stat-lbl">Sunny Days Per Year</div>
+        <div class="stat-src">Annual average</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num-v1"><span class="stat-ctr" data-count="500">500</span><span class="stat-sfx">+</span></div>
+        <div class="stat-lbl">Families We've Relocated</div>
+        <div class="stat-src">Moving2Valencia since 2008</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num-v1"><span class="stat-ctr" data-count="16">16</span><span class="stat-sfx">+</span></div>
+        <div class="stat-lbl">Years of Local Expertise</div>
+        <div class="stat-src">Founded 2008 by Christa</div>
+      </div>
+    </div>
+    <div class="stats-footnote">Sources: Forbes Travel Guide &nbsp;·&nbsp; InterNations Expat City Ranking &nbsp;·&nbsp; Numbeo Quality of Life Index 2024</div>
   </div>
 </section>
 
@@ -1652,6 +1742,23 @@ function handleContactForm(e) {
   var f = document.getElementById('contact-form-el');
   if (f) f.innerHTML = '<div class="contact-success"><h3>\u2713 Message Sent!</h3><p>Christa will be in touch within 1 business day.</p><p style="margin-top:10px;font-size:13px">Or email directly: <a href="mailto:info@moving2valencia.eu">info@moving2valencia.eu</a></p></div>';
 }
+// Stats counter animation
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.stat-ctr[data-count]').forEach(function(el){
+          var t=parseInt(el.dataset.count),s=null,d=1800;
+          (function step(ts){if(!s)s=ts;var p=Math.min((ts-s)/d,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*t);if(p<1)requestAnimationFrame(step);})(0);
+          requestAnimationFrame(function(ts){(function step(ts){if(!s)s=ts;var p=Math.min((ts-s)/d,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*t);if(p<1)requestAnimationFrame(step);})(ts);});
+        });
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.35});
+  var sec=document.querySelector('.stats-section');
+  if(sec)obs.observe(sec);
+})();
 </script>
 
 <!-- ===== SERVICE MODALS ===== -->
